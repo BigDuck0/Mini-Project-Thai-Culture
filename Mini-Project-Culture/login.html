@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ล็อกอิน</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="login.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body class="align">
+    <div class="grid align__item">
+      <div class="register">
+        <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="130" height="130">
+          <defs>
+            <style>
+              .cls-1 {
+                fill: none;
+                stroke: #000;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+                stroke-width: 2px;
+              }
+            </style>
+          </defs>
+          <path class="cls-1" d="M20 32a1.47 1.47 0 0 1 1.5-1.5M28 30a2 2 0 0 1 2 2M26 37h1M37 37h0M10.45 14.45 9 13l-5 5 1.45 1.45a2.19 2.19 0 0 0 3.1 0l1.9-1.9a2.19 2.19 0 0 0 0-3.1zM10 19l7.1 7.1"/>
+          <path class="cls-1" d="M41 36a3 3 0 0 0-.59.06 4 4 0 0 0-4.68-5.83A6 6 0 0 0 30 26h-.34a6 6 0 0 0-11.32 0H18a4 4 0 0 0-4 4 4 4 0 0 0 .55 2 6 6 0 0 0-1.46 3.07 3.5 3.5 0 1 0 2.14 5.61A6 6 0 0 0 19 42h22a3 3 0 0 0 0-6z"/>
+          <path class="cls-1" d="M-622-350H58v680h-680z"/>
+        </svg>
+        <h2>เข้าสู่ระบบ</h2>
+        <form id="loginForm" method="post" class="form">
+          <div class="form__field">
+            <input type="text" id="username" placeholder="ชื่อผู้ใช้" required />
+          </div>
+          <div class="form__field">
+            <input type="password" id="password" placeholder="รหัสผ่าน" required />
+            <i class="fa-solid fa-eye" id="eyeIcon" onclick="togglePasswordVisibility()"></i>
+          </div>
+          <div class="form__field">
+            <input type="submit" value="เข้าสู่ระบบ" />
+          </div>
+        </form>
+        <p>ยังไม่มีบัญชีผู้ใช้? <a href="/register">สมัครสมาชิก</a></p>
+      </div>
+    </div>
+
+    <script src="login.js"></script>
+  </body>
+</html>

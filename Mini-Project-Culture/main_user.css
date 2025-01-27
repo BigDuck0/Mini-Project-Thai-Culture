@@ -1,0 +1,581 @@
+  body, h1, h2, h3, p, button {
+    font-family: 'Kanit', sans-serif;
+  }
+
+  body {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    overflow: auto;
+    overflow-x: hidden;
+  }
+
+  h3 {
+    margin-top: 320px;
+    text-align: center;
+    font-size: 28px;
+    color: #000000;
+
+  }
+
+  /* เพิ่มการจัดวางสำหรับ h1 */
+  .visible-text {
+    position: relative;
+    z-index: 10;
+    margin-top: 750px;
+    text-align: center;
+    font-size: 30px;
+    color: rgb(142, 3, 3);
+    opacity: 1;
+  }
+
+
+  main {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    /* ให้เนื้อหามีความสูงเท่ากับหน้าจอ */
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .item {
+    width: 225px;
+    height: 120px;
+    list-style-type: none;
+    position: absolute;
+    top: 80%;
+    transform: translateY(-50%);
+    z-index: 1;
+    background-position: center;
+    background-size: cover;
+    border-radius: 20px;
+    box-shadow: 0 20px 30px rgba(255, 255, 255, 0.3) inset;
+    transition: transform 0.1s, left 0.75s, top 0.75s, width 0.75s, height 0.75s;
+  }
+  #button_logout {
+    position: relative;
+    bottom: 1580px;
+    right: -680px;
+    z-index: 2;
+    color: white;
+    background-color: #FF0000;
+    font-size: 15px;
+    border-radius: 20px;
+    border: none;
+    padding: 10px 40px;
+    text-align: center;
+    font-family: 'Kanit', sans-serif;
+    cursor: pointer;
+    transition: .4s;
+  }
+  #button_logout:hover {
+    background-color: #ff4400;
+    transition: .4s;
+  }
+  .item:nth-child(1),
+  .item:nth-child(2) {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    transform: none;
+    border-radius: 0;
+    box-shadow: none;
+    opacity: 1;
+  }
+
+  .item:nth-child(3) {
+    left:65%;
+  }
+
+  .item:nth-child(4) {
+    left: calc(65% + 270px);
+  }
+
+  .item:nth-child(5) {
+    left: calc(65% + 540px);
+  }
+
+  .item:nth-child(6) {
+    left: calc(65% + 810px);
+    opacity: 0;
+  }
+
+  .content {
+    width: min(45vw, 650px);
+    margin-top: 370px;
+    margin-left: 80px;
+    top: 50%;
+    left: 3rem;
+    transform: translateY(-50%);
+    color: white;
+    text-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    display: none;
+  }
+
+  .content .title {
+    text-transform: uppercase;
+    font-size: 50px;
+    color: rgb(255, 255, 255);
+    margin-top: 100px;
+  }
+
+  .content .description {
+    line-height: 1.7;
+    max-height: 500px;
+    opacity: 1;
+    font-size: 1.2rem;
+  }
+
+  .content button {
+    width: fit-content;
+    background-color: rgba(0, 0, 0, 0.1);
+    color: white;
+    border: 2px solid white;
+    border-radius: 0.25rem;
+    padding: 0.75rem;
+    cursor: pointer;
+  }
+
+  .item:nth-of-type(2) .content {
+    display: block;
+    animation: show 0.75s ease-in-out 0.3s forwards;
+  }
+
+  @keyframes show {
+    0% {
+      filter: blur(5px);
+      transform: translateY(calc(-50% + 75px));
+    }
+
+    100% {
+      opacity: 1;
+      filter: blur(0);
+    }
+  }
+
+  .show-animation {
+    opacity: 1;
+    animation: show 0.75s ease-in-out forwards;
+  }
+
+  .nav {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+    user-select: none;
+  }
+
+  .nav .btn {
+    background-color: rgb(255, 255, 255);
+    color: rgba(0, 0, 0, 0.7);
+    border: 0px solid rgba(0, 0, 0, 0.6);
+    margin: 0 0.9rem;
+    padding: 0.75rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: .2s;
+  }
+  
+  .nav .btn:hover {
+    padding: 0.85rem;
+  }
+
+  .profile-image1 {
+    width: 40px;        /* ขนาดความกว้างของภาพ */
+    height: 40px;       /* ขนาดความสูงของภาพ */
+    background-image: url('image-removebg-preview.png');
+    border-radius: 50%; /* ทำให้ภาพเป็นวงกลม */
+    cursor: pointer;
+    display: none;  /* ตั้งค่าเริ่มต้นให้ปุ่ม Profile ซ่อน */
+  }
+
+  @media (width > 650px) and (width < 900px) {
+    .content .title {
+      font-size: 1rem;
+    }
+
+    .content .description {
+      font-size: 0.7rem;
+    }
+
+    .content button {
+      font-size: 0.7rem;
+    }
+
+    .item {
+      width: 160px;
+      height: 270px;
+    }
+
+    .item:nth-child(3) {
+      left:65%;
+    }
+    
+    .item:nth-child(4) {
+      left: calc(65% + 250px);
+    }
+    
+    .item:nth-child(5) {
+      left: calc(65% + 470px);
+    }
+    
+    .item:nth-child(6) {
+      left: calc(65% + 700px);
+      opacity: 0;
+    }
+    
+  }
+
+  @media (width < 650px) {
+    .content .title {
+      font-size: 0.9rem;
+    }
+
+    .content .description {
+      font-size: 0.65rem;
+    }
+
+    .content button {
+      font-size: 0.7rem;
+    }
+
+    .item {
+      width: 130px;
+      height: 220px;
+    }
+
+    .item:nth-child(3) {
+      left: 50%;
+    }
+
+    .item:nth-child(4) {
+      left: calc(50% + 140px);
+    }
+
+    .item:nth-child(5) {
+      left: calc(50% + 280px);
+    }
+
+    .item:nth-child(6) {
+      left: calc(50% + 420px);
+      opacity: 0;
+    }
+  }
+
+  p {
+    font-size: 20px;
+  }
+
+  .top-nav {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+    
+  }
+  #button_login {
+    position: relative;
+    top: 20px;
+    left: 650px;
+    z-index: 2;
+    color: white;
+    background-color: #FF0000;
+    font-size: 15px;
+    border-radius: 20px;
+    border: none;
+    padding: 10px 40px;
+    text-align: center;
+    font-family: 'Kanit', sans-serif;
+    cursor: pointer;
+    transition: .4s;
+  }
+  #button_login:hover {
+    background-color: #ff4400;
+    transition: .4s;
+  }
+
+  .top-nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin-left: 40px;
+  }
+
+  .top-nav ul li {
+    display: inline;
+  }
+
+  .top-nav ul li a {
+    text-decoration: none;
+    color: white;
+    background-color: rgba(255, 255, 255, 0);
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  .top-nav ul li a:hover {
+    background-color: #e2040400;
+    border-style: solid;
+    border-color: #ffffffc8;
+  }
+
+  .hidden-content {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.6s ease, opacity 0.6s ease;
+  }
+
+  .content-container.expanded .hidden-content {
+    max-height: 500px;
+    opacity: 1;
+  }
+
+  .show-more {
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
+  }
+
+  #long_main {
+    margin-top: -50px;
+    margin-left: 60px;
+    font-size: 40px;
+    color: rgb(255, 255, 255);
+  }
+
+  h1 {
+    margin-left: 60px;
+    margin-top: 190px;
+    font-size: 80px;
+    color: rgb(255, 255, 255);
+  }
+
+  #activity_button {
+    background-color: #FF0000;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    padding: 20px 60px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 20px 60px;
+    cursor: pointer;
+    transition: .4s;
+  }
+
+  #activity_button:hover {
+    background-color: #ff4400;
+    font-size: 21px;
+    transition: .4s;
+  }
+
+  .button {
+    border: none;
+    color: rgba(255, 255, 255, 0);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+
+    cursor: pointer;
+    
+    /* ปรับขนาดกล่องตามต้องการ */
+  }
+  .button1{
+    width: 220px;
+    height: 330px;
+    margin-left: 10px;
+    border-radius: 25px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    
+  }
+  .button2{
+    width: 380px;
+    height: 280px;
+    margin-left: 10px;
+    position: relative;
+    top: 0px; /* ปรับตำแหน่งตามต้องการ */
+    border-radius: 25px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+  }
+  .button3 {
+    width: 220px;
+    height: 330px;
+    margin-left: 10px;
+    position: relative;
+    top: 100px; /* ปรับตำแหน่งตามต้องการ */
+    border-radius: 25px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  .button4{
+    width: 220px;
+    height: 290px;
+    margin-left: 10px;
+    position: relative;
+    top: 30px; /* ปรับตำแหน่งตามต้องการ */
+    border-radius: 25px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; 
+    
+  }
+
+  .button5{
+    width: 380px;
+    height: 350px;
+    margin-left: 10px;
+    position: relative;
+    top: 32.5px; /* ปรับตำแหน่งตามต้องการ */
+    border-radius: 25px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .button6{
+    width: 340px;
+    height: 280px;
+    margin-left: 10px;
+    margin-top: 15px;
+    margin-bottom: 40px;
+    position: relative;
+    top: 10px; /* ปรับตำแหน่งตามต้องการ */
+    border-radius: 25px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    
+  }
+  .button7{
+    width: 250px;
+    height: 180px;
+    position: relative;
+    bottom: 90px; /* ปรับตำแหน่งตามต้องการ */
+    margin-left: 10px;
+    margin-top: 15px;
+    border-radius: 25px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    
+  }
+  .button8{
+    width: 150px;
+    height: 200px;
+    position: relative;
+    bottom: 40px; /* ปรับตำแหน่งตามต้องการ */
+    left: 245px;
+    margin-left: 10px;
+    margin-top: 15px;
+    border-radius: 25px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    
+  }
+  .button9{
+    width: 230px;
+    height: 150px;
+    position: relative;
+    bottom: 85.5px; /* ปรับตำแหน่งตามต้องการ */
+    left: 245px;
+    margin-left: 10px;
+    margin-top: 15px;
+    border-radius: 25px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    
+  }.button9{
+    width: 230px;
+    height: 150px;
+    position: relative;
+    bottom: 85.5px; /* ปรับตำแหน่งตามต้องการ */
+    left: 245px;
+    margin-left: 10px;
+    margin-top: 15px;
+    border-radius: 25px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    
+  }
+  .button10{
+    width: 200px;
+    height: 180px;
+    margin-left: 255px;
+    position: relative;
+    bottom: 55px;
+    border-radius: 25px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    
+  }
+
+/* CSS สำหรับ Overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* สีพื้นหลังโปร่งใส */
+  display: none; /* เริ่มต้นซ่อน Overlay */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* เลื่อนให้อยู่ข้างหน้าของเนื้อหาทั้งหมด */
+}
+
+.overlay-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 50%; /* กำหนดความกว้างของ Overlay */
+  max-width: 600px; /* กำหนดความกว้างสูงสุด */
+  margin: auto;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* เพิ่มเงาให้ Overlay */
+}
+
+/* ปรับปุ่มให้ดูดี */
+button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  border: none;
+  background-color: #007BFF;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* สำหรับปิด Overlay */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+}
+
+.close-btn:hover {
+  color: #007BFF;
+}
